@@ -19,7 +19,7 @@ def home():
     return item['text']
 
 
-@app.route("/add", methods=['GET'])
+@app.route("/add", methods=['PASTE'])
 def add():
     text = request.args.get('text')
     if text is None:
