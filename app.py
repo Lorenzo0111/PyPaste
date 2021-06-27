@@ -19,7 +19,7 @@ def home():
         if item is None:
             return "Not found"
         return item['text']
-     except:
+    except:
         return "Not found"
 
 
