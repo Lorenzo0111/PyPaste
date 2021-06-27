@@ -23,7 +23,7 @@ def home():
         return "Not found"
 
 
-@app.route("/add", methods=['PASTE'])
+@app.route("/add", methods=['POST'])
 def add():
     text = request.args.get('text')
     if text is None:
