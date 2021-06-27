@@ -12,11 +12,15 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def home():
-    code = request.args.get('code')
-    item = collection.find_one({"_id": ObjectId(code)})
-    if item is None:
+    try:
+        code = request.args.get('code')
+        object = ObjectId(code)
+        item = collection.find_one({"_id": object})
+        if item is None:
+            return "Not found"
+        return item['text']
+     except:
         return "Not found"
-    return item['text']
 
 
 @app.route("/add", methods=['PASTE'])
